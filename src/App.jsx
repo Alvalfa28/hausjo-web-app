@@ -1,13 +1,18 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import DashboardLayout from './layouts/DashboardLayout';
+import TambahNasabah from './pages/TambahNasabah';
 
 function App() {
   return (
-    <DashboardLayout>
-      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-        <h2 className="text-xl font-bold text-blue-900">Selamat Datang di Sistem Piutang HausJo</h2>
-        <p className="mt-2 text-gray-600">Sistem siap digunakan untuk manajemen piutang dan jaminan.</p>
-      </div>
-    </DashboardLayout>
+    <Router>
+      <DashboardLayout>
+        <Routes>
+          <Route path="/" element={<div className="p-6 bg-white rounded shadow text-gray-700">Ini adalah halaman Dashboard Utama.</div>} />
+          <Route path="/tambah-nasabah" element={<TambahNasabah />} />
+        </Routes>
+      </DashboardLayout>
+    </Router>
   );
 }
+
 export default App;
