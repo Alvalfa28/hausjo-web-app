@@ -1,19 +1,24 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import DashboardLayout from './layouts/DashboardLayout';
-import TambahNasabah from './pages/TambahNasabah';
 import AnalisisKelayakan from './pages/AnalisisKelayakan';
+import TambahPiutang from './pages/TambahPiutang';
+import PengaturanGlobal from './pages/PengaturanGlobal';
 
 function App() {
   return (
-    <Router>
-      <DashboardLayout>
-        <Routes>
-          <Route path="/" element={<div className="p-6 bg-white rounded shadow text-gray-700">Ini adalah halaman Dashboard Utama.</div>} />
-          <Route path="/tambah-nasabah" element={<TambahNasabah />} />
-          <Route path="/analisis" element={<AnalisisKelayakan />} />
-        </Routes>
-      </DashboardLayout>
-    </Router>
+    <BrowserRouter>
+      <Routes>
+        {/* Layout utama yang membungkus semua halaman */}
+        <Route path="/" element={<DashboardLayout />}>
+          {/* Redirect default ke analisis jika buka root */}
+          <Route index element={<Navigate to="/analisis-kelayakan" />} />
+          
+          <Route path="analisis-kelayakan" element={<AnalisisKelayakan />} />
+          <Route path="transaksi-piutang" element={<TambahPiutang />} />
+          <Route path="pengaturan" element={<PengaturanGlobal />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

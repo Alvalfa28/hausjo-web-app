@@ -1,20 +1,34 @@
 import React from 'react';
+import { Outlet, Link, useLocation } from 'react-router-dom';
 
-const DashboardLayout = ({ children }) => {
+const DashboardLayout = () => {
+  const location = useLocation();
+
   return (
-    <div className="flex min-h-screen bg-gray-50">
-      <aside className="w-64 bg-blue-900 text-white p-6 shadow-lg">
-        <h1 className="text-2xl font-bold tracking-wider text-white">
-          HAUS<span className="text-sky-400">JO</span>
-        </h1>
+    <div className="flex h-screen bg-gray-50">
+      {/* Sidebar */}
+      <aside className="w-64 bg-white border-r border-gray-200 p-6">
+        <h1 className="text-xl font-bold text-blue-900 mb-8">Agen Hausjo</h1>
+        <nav className="space-y-2">
+          <Link to="/analisis-kelayakan" className="block p-2 hover:bg-blue-50 rounded">Analisis Kelayakan</Link>
+          <Link to="/transaksi-piutang" className="block p-2 hover:bg-blue-50 rounded">Transaksi Piutang</Link>
+          <Link to="/pengaturan" className="block p-2 hover:bg-blue-50 rounded">Pengaturan</Link>
+        </nav>
       </aside>
+
+      {/* Main Content */}
       <div className="flex-1 flex flex-col">
-        <header className="h-20 bg-white border-b shadow-sm flex items-center px-8">
-          <h2 className="text-lg font-semibold text-gray-700">Dashboard Utama</h2>
+        <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-end px-8">
+          <span className="text-sm font-medium text-gray-600">Analis Kredit</span>
         </header>
-        <main className="p-8">{children}</main>
+        
+        <main className="p-8 overflow-y-auto">
+          {/* Outlet adalah kunci utama agar konten halaman muncul! */}
+          <Outlet />
+        </main>
       </div>
     </div>
   );
 };
+
 export default DashboardLayout;

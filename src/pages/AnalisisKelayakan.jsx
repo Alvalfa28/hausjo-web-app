@@ -113,7 +113,7 @@ const AnalisisKelayakan = () => {
     <div className="max-w-5xl mx-auto space-y-6">
       <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
         <h2 className="text-2xl font-bold text-blue-900 mb-2">Analisis Kelayakan Kredit</h2>
-        <p className="text-gray-500 text-sm">Sistem Pendukung Keputusan Profile Matching sesuai Bab 3.4.</p>
+        <p className="text-gray-500 text-sm">Sistem Pendukung Keputusan Profile Matching</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -154,7 +154,7 @@ const AnalisisKelayakan = () => {
               </div>
             </div>
             <p className="text-[11px] text-sky-600 mt-3 leading-relaxed italic">
-              *Konversi aktual nasabah ke rentang nilai 1-5 dilakukan otomatis oleh sistem menggunakan aturan penetapan standar operasional (Bab 3.4.1).
+              *Konversi aktual nasabah ke rentang nilai 1-5 dilakukan otomatis oleh sistem menggunakan aturan penetapan standar operasional.
             </p>
           </div>
 
