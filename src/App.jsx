@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import DashboardLayout from './layouts/DashboardLayout';
 import TambahNasabah from './pages/TambahNasabah';
+import AnalisisKelayakan from './pages/AnalisisKelayakan';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <Routes>
           <Route path="/" element={<div className="p-6 bg-white rounded shadow text-gray-700">Ini adalah halaman Dashboard Utama.</div>} />
           <Route path="/tambah-nasabah" element={<TambahNasabah />} />
+          <Route path="/analisis" element={<AnalisisKelayakan />} />
         </Routes>
       </DashboardLayout>
     </Router>

@@ -5,7 +5,6 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 const TambahNasabah = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   
-  // 1. STATE FORM DATA (Hanya dideklarasikan satu kali)
   const [formData, setFormData] = useState({
     id_karyawan: '',
     nama_lengkap: '',
@@ -20,7 +19,6 @@ const TambahNasabah = () => {
     status_riwayat: ''
   });
 
-  // 2. STATE KONTROL DROPDOWN BANK
   const [bankDropdown, setBankDropdown] = useState('');
 
   const handleChange = (e) => {
@@ -53,7 +51,6 @@ const TambahNasabah = () => {
 
       alert("Data Nasabah dan Jaminan ATM berhasil disimpan!");
       
-      // Reset Form dan Dropdown setelah berhasil simpan
       setFormData({
         id_karyawan: '', nama_lengkap: '', no_hp: '', instansi: '',
         nama_bank: '', nama_kartu: '', no_atm: '', pin_atm: '', 
@@ -126,15 +123,15 @@ const TambahNasabah = () => {
                 className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-sky-400 outline-none transition-all" placeholder="Contoh: 2.5" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Skor Riwayat Bayar (1-5)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Skor Riwayat Bayar (Karakter)</label>
               <select name="status_riwayat" value={formData.status_riwayat} onChange={handleChange} required
                 className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-sky-400 outline-none transition-all">
-                <option value="">-- Pilih Skor --</option>
-                <option value="5">5 - Sangat Lancar / Nasabah Baru</option>
-                <option value="4">4 - Lancar (Pernah telat &lt; 3 hari)</option>
-                <option value="3">3 - Cukup (Sering telat, lunas)</option>
-                <option value="2">2 - Buruk (Menunggak lama)</option>
-                <option value="1">1 - Sangat Buruk (Blacklist)</option>
+                <option value="">Pilih Skor</option>
+                <option value="5">5 - Sangat Baik / Selalu Tepat Waktu</option>
+                <option value="4">4 - Baik / Pernah Terlambat 1-2 Hari</option>
+                <option value="3">3 - Netral / Nasabah Baru (Cold-Start)</option>
+                <option value="2">2 - Buruk / Sering Menunggak</option>
+                <option value="1">1 - Sangat Buruk / Pernah Gagal Bayar</option>
               </select>
             </div>
           </div>
@@ -147,7 +144,6 @@ const TambahNasabah = () => {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             
-            {/* Input Nama Bank */}
             <div>
               <label className="block text-sm font-medium text-blue-200 mb-1">Bank Penerbit</label>
               <select 
@@ -170,10 +166,9 @@ const TambahNasabah = () => {
                 <option value="BNI">BNI</option>
                 <option value="BSI">BSI</option>
                 <option value="BJB">BJB</option>
-                <option value="Lainnya">Lainnya...</option>
+                <option value="Lainnya">Lainnya... (Ketik Manual)</option>
               </select>
 
-              {/* Kolom pengisian manual muncul jika "Lainnya" dipilih */}
               {bankDropdown === 'Lainnya' && (
                 <input 
                   type="text" 
