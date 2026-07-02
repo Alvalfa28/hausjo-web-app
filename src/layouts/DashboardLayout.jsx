@@ -10,9 +10,15 @@ const DashboardLayout = () => {
       <aside className="w-64 bg-white border-r border-gray-200 p-6">
         <h1 className="text-xl font-bold text-blue-900 mb-8">Agen Hausjo</h1>
         <nav className="space-y-2">
+          <Link to="/manajemen-nasabah" className="block p-2 hover:bg-blue-50 rounded">Manajemen Nasabah</Link>
           <Link to="/analisis-kelayakan" className="block p-2 hover:bg-blue-50 rounded">Analisis Kelayakan</Link>
           <Link to="/transaksi-piutang" className="block p-2 hover:bg-blue-50 rounded">Transaksi Piutang</Link>
+          <Link to="/approval-kredit" className="block p-2 hover:bg-blue-50 rounded">Approval Kredit</Link>
+          <Link to="/pelunasan-utang" className="block p-2 hover:bg-blue-50 rounded">Pelunasan Utang</Link>
+          <Link to="/kriteria-penilaian" className="block p-2 hover:bg-blue-50 rounded">Kriteria Penilaian</Link>
           <Link to="/pengaturan" className="block p-2 hover:bg-blue-50 rounded">Pengaturan</Link>
+          
+          
         </nav>
       </aside>
 
